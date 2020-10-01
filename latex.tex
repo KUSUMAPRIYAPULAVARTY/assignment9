@@ -153,30 +153,21 @@ Prove that if two homogenous systems of linear equations in two unknowns have th
 \section{Solution}
 Let the two systems of homogenous equations be 
 \begin{align}
- A_{11} x_1+A_{12} x_2=0 \label{1}\\
- A_{21} x_1+A_{22} x_2=0\label{2}\\
-\text{and       }
-  B_{11} x_1+B_{12} x_2=0\label{3} \\
- B_{21} x_1+B_{22} x_2=0\label{4}  
+ \vec{A}\vec{x}=\vec{0}\\
+ \vec{B}\vec{x}=\vec{0}\\
+ \implies \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{1}\\
+ \text{and  }\myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{2}
 \end{align}
-where $A_{11}, A_{12}, A_{21}, A_{22}, B_{11}, B_{12}, B_{21}, B_{22}$ are elements of a field $\mathbbf{F}$\\
-The linear combination of equations for the system represented in \eqref{1},\eqref{2} can be given as
+Consider $i^{th}$ equation in $\eqref{1}$ and $j^{th}$ equation in $\eqref{2}$ 
 \begin{align}
- (c_1 A_{11}+c_2 A_{21})x_1+(c_1 A_{12}+c_2 A_{22})x_2=0 \label{5}  
+    \myvec{A_{i1}&A_{i2}}\myvec{x_1\\x_2}=0\\
+    \myvec{B_{j1}&B_{j2}}\myvec{x_1\\x_2}=0
 \end{align}
-where $c_1,c_2$ are scalars in field $\mathbbf{F}$\\
-The solutions to a system of linear equations also satisfy the linear combinations of those system of equations.\\
-So, \eqref{5} and system of equations in \eqref{3} and \eqref{4} also have the same set of solutions.\\
-From this we can write,
+Since they have the same solution, we can deduce
 \begin{align}
-    c_1 A_{11}+c_2 A_{21}=B_{11},c_1 A_{12}+c_2 A_{22}=B_{12}
+     \myvec{A_{i1}&A_{i2}}=k \myvec{B_{j1}&B_{j2}}
 \end{align}
-for a particular value of $c_1,c_2$ in $\mathbbf{F}$ and
-\begin{align}
-   c_1 A_{11}+c_2 A_{21}=B_{21},c_1 A_{12}+c_2 A_{22}=B_{22} 
-\end{align}
-for another value of $c_1,c_2$ in $\mathbbf{F}$\\
-So, every equation in system of equations represented by \eqref{3} and \eqref{4} can be represented as a linear combination of system of equations in \eqref{1},\eqref{2}\\
-Hence those two systems are equivalent.
+where k is a scalar.\\
+This is true for all the equations in $\eqref{1}$ and $\eqref{2}$ proving that they are equivalent.
 \end{document}
 
