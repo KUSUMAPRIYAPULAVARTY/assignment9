@@ -158,16 +158,21 @@ Let the two systems of homogenous equations be
  \implies \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{1}\\
  \text{and  }\myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{2}
 \end{align}
-Consider $i^{th}$ equation in $\eqref{1}$ and $j^{th}$ equation in $\eqref{2}$ 
+Writing the coefficient matrices in their row echelon forms
 \begin{align}
-    \myvec{A_{i1}&A_{i2}}\myvec{x_1\\x_2}=0\\
-    \myvec{B_{j1}&B_{j2}}\myvec{x_1\\x_2}=0
+   \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\ \vdots \\0}\label{3} \\
+   \myvec{B_{11}&B_{12}\\0&B_{22}B_{11}-B_{12}B{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\ \vdots \\0}\label{4}  
 \end{align}
-Since they have the same solution, we can deduce
+Since the two sets have the same solution, they must also satisfy
 \begin{align}
-     \myvec{A_{i1}&A_{i2}}=k \myvec{B_{j1}&B_{j2}}
+  \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0\\B_{11}&B_{12}\\0&B_{22}B_{11}-B_{12}B{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\\vdots\\0\\0\\0\\0\\\vdots\\0} \label{5} 
 \end{align}
-where k is a scalar.\\
-This is true for all the equations in $\eqref{1}$ and $\eqref{2}$ proving that they are equivalent.
+For the same solution to exist for $\eqref{3},\eqref{4},\eqref{5}$, all the coefficient matrices must have the same rank.\\
+It is possible only if the row echelon form for coefficient matrix of \eqref{5} becomes
+\begin{align}
+   \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0\\0&0\\0&0\\0&0\\ \vdots & \vdots \\0&0} 
+\end{align}
+This happens only if equations in \eqref{2} are linear combinations of equations in \eqref{1}\\
+Hence, they are equivalent
 \end{document}
 
