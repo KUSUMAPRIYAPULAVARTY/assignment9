@@ -158,21 +158,56 @@ Let the two systems of homogenous equations be
  \implies \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{1}\\
  \text{and  }\myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{2}
 \end{align}
-Writing the coefficient matrices in their row echelon forms
+\subsection{Case 1}
+Let us assume that the solution is unique.
+Since they have the same solution, both $\vec{A},\vec{B}$ must have their rank as 2.\\
+Let the matrix $\vec{A}$ upon rowreducing becomes $\vec{R_1}$ with rank 2
 \begin{align}
-   \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\ \vdots \\0}\label{3} \\
-   \myvec{B_{11}&B_{12}\\0&B_{22}B_{11}-B_{12}B{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\ \vdots \\0}\label{4}  
+   \vec{R_1}= \myvec{a_1&0\\0&a_2\\0&0\\ \vdots & \vdots \\0&0} 
 \end{align}
-Since the two sets have the same solution, they must also satisfy
+and  matrix $\vec{B}$ becomes $\vec{R_2}$ with rank 2
 \begin{align}
-  \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0\\B_{11}&B_{12}\\0&B_{22}B_{11}-B_{12}B{21}\\0&0\\ \vdots & \vdots \\0&0}\myvec{x_1\\x_2}=\myvec{0\\0\\0\\\vdots\\0\\0\\0\\0\\\vdots\\0} \label{5} 
+   \vec{R_2}= \myvec{b_1&0\\0&b_2\\0&0\\ \vdots & \vdots \\0&0} 
 \end{align}
-For the same solution to exist for $\eqref{3},\eqref{4},\eqref{5}$, all the coefficient matrices must have the same rank.\\
-It is possible only if the row echelon form for coefficient matrix of \eqref{5} becomes
+Consider $\vec{R_1}$\\
+Performing elementary row operation $R_1\leftarrow R_1 \times \frac{1}{a_1}\\ \text{and } R_2\leftarrow R_2 \times \frac{1}{a_2}$ using elementary matrices,
 \begin{align}
-   \myvec{A_{11}&A_{12}\\0&A_{22}A_{11}-A_{12}A{21}\\0&0\\ \vdots & \vdots \\0&0\\0&0\\0&0\\0&0\\ \vdots & \vdots \\0&0} 
+    \vec{E_1}=\myvec{\frac{1}{a_1}&0&0&\hdots&0\\0&1&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
+    \vec{E_2}=\myvec{1&0&0&\hdots&0\\0&\frac{1}{a_2}&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
+    \vec{E_2}(\vec{E_1}\vec{R_1})=\myvec{1&0\\0&1\\0&0\\ \vdots & \vdots \\0&0}
 \end{align}
-This happens only if equations in \eqref{2} are linear combinations of equations in \eqref{1}\\
-Hence, they are equivalent
+Performing  $R_1\leftarrow R_1 \times b_1$ using elementary matrix
+\begin{align}
+\vec{E_3}=\myvec{b_1&0&0&\hdots&0\\0&1&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
+\vec{E_3}(\vec{E_2}(\vec{E_1}\vec{R_1}))=\myvec{b_1&0\\0&1\\\vdots&\vdots\\0&0}
+\end{align}
+Performing  $R_2\leftarrow R_2 \times b_2$ using elementary matrix
+\begin{align}
+\vec{E_4}=\myvec{1&0&0&\hdots&0\\0&b_2&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
+\vec{E_4}(\vec{E_3}(\vec{E_2}(\vec{E_1}\vec{R_1})))=\myvec{b_1&0\\0&b_2\\\vdots&\vdots\\0&0}=\vec{R_2}\\
+\implies \vec{R_2}=\vec{E}\vec{R_1}
+\end{align}
+This proves that $\vec{R_2}$ can be obtained by linear combinations of $\vec{R_1}$\\
+But $\vec{R_1}$ is a linear combination of $\vec{A}$ and $\vec{R_2}$ is a linear combination of $\vec{B}$\\
+Hence, $\vec{B}$ can be obtained by linear combinations of $\vec{A}$
+\subsection{Case 2}
+Let us assume that \eqref{1},\eqref{2} have infinitely many solutions\\
+So,
+\begin{align}
+\text{either rank}(\vec{A}) = \text{rank}(\vec{B}) = 1 \\
+\text{or rank}(\vec{A})= \text{rank}(\vec{B}) = 0
+\end{align}
+Rank zero indicates both $\vec{A}$ and $\vec{B}$ are null matrices and are equivalent.\\
+If, rank of $\vec{A}$ = rank of $\vec{B}$ = 1
+\begin{align}
+ \vec{R_1}= \myvec{a_1&0\\0&0\\0&0\\ \vdots & \vdots \\0&0} \\
+ \vec{R_2}= \myvec{b_1&0\\0&0\\0&0\\ \vdots & \vdots \\0&0} 
+\end{align}
+Clearly $\vec{R_1}$ and $\vec{R_2}$ are related through an elementary row operation as
+\begin{align}
+    \vec{R_2}=\vec{E}\vec{R_2}\\
+    \text{where } \vec{E}=\myvec{\frac{b_1}{a_1}&0&0&\hdots&0\\0&1&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}
+\end{align}
+So, \eqref{2} can be expressed as linear combinations of \eqref{1} indicating that the two systems of equations are equivalent.
 \end{document}
 
