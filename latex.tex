@@ -166,55 +166,24 @@ Let the reduced row echelon form of $\vec{A}$ be $\vec{R_1}$ and $\vec{B}$ be $\
    \vec{R_1}= \myvec{1&0\\0&1\\0&0\\ \vdots & \vdots \\0&0} \\
     \vec{R_2}= \myvec{1&0\\0&1\\0&0\\ \vdots & \vdots \\0&0}
 \end{align}
-Consider $\vec{R_1}$\\
-Performing elementary row operation $\\R_1\leftarrow R_1+R_2\times \frac{B_{12}}{B_{11}}\\$ using elementary matrix,
+Now the systems are equivalent if one of them can be obtained as a combination of others.Note that, reduced row echelon forms are obtained through combinations of rows of matrices implying they are linear combinations of the equations in  the systems.
+Hence,If systems are equivalent, we need to be able to write 
 \begin{align}
-    \vec{E_1}=\myvec{1&\frac{B_{12}}{B_{11}}&0&\hdots&0\\0&1&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \implies \vec{E_1}\vec{R_1}=\myvec{1&\frac{B_{12}}{B_{11}}\\0&1\\0&0\\ \vdots & \vdots \\0&0}
+    \vec{B}=\vec{E}\vec{R_1}\\
 \end{align}
-Performing the row operations
+$\vec{E}$ is a product of elementary matrices obtained as
 \begin{align}
-  R_3\leftarrow R_3+R_2 \\
-  R_4\leftarrow R_4+R_2\\
-  \vdots\\
-  R_n\leftarrow R_n+R_2
- \end{align}
- Using a product of elementary matrices
- \begin{align}
-  \vec{E_2}=\myvec{1&0&0&\hdots&0\\0&1&0&\hdots&0\\0&1&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&1&0&\hdots&1}\\
- \implies \vec{E_2}(\vec{E_1}\vec{R_1})=\myvec{1&\frac{B_{12}}{B_{11}}\\0&1\\0&1\\ \vdots & \vdots \\0&1}
+    \vec{E}= \vec{E_5}\vec{E_4}\vec{E_3}\vec{E_4}\vec{E_1}\\
+    \text{where }  \vec{E_1}=\myvec{1&\frac{B_{12}}{B_{11}}&0&\hdots&0\\0&1&0\hdots&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
+    \vec{E_2}=\myvec{1&0&0&\hdots&0\\0&1&0&\hdots&0\\0&1&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&1&0&\hdots&1}
 \end{align}
-Performing the row operations
 \begin{align}
-  R_2\leftarrow R_2\times B_{22}-\frac{B_{21}B_{12}}{B_{11}}\\
-  \vdots\\
-   R_n\leftarrow R_n\times B_{n2}-\frac{B_{n1}B_{12}}{B_{11}}
+    \vec{E_3}=\myvec{1&0&\hdots&0\\0& B_{22}-\frac{B_{21}B_{12}}{B_{11}}&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\0&0&\hdots&B_{n2}-\frac{B_{n1}B_{12}}{B_{11}}}\\
+    \vec{E_4}=\myvec{1&0&\hdots&0\\B_{21}& 1&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\B_{n1}&0&\hdots&1}\\
+     \vec{E_5}=\myvec{B_{11}&0&\hdots&0\\0& 1&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\0&0&\hdots&1}
 \end{align}
- Using a product of elementary matrices
- \begin{align}
-  \vec{E_3}=\myvec{1&0&\hdots&0\\0& B_{22}-\frac{B_{21}B_{12}}{B_{11}}&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\0&0&\hdots&B_{n2}-\frac{B_{n1}B_{12}}{B_{11}}}\\
- \implies \vec{E_3}(\vec{E_2}(\vec{E_1}\vec{R_1}))=\myvec{1&\frac{B_{12}}{B_{11}}\\0&B_{22}-\frac{B_{21}B_{12}}{B_{11}}\\ \vdots & \vdots \\0&B_{n2}-\frac{B_{n1}B_{12}}{B_{11}}}
-\end{align}
-Performing the row operations
-\begin{align}
-  R_2\leftarrow R_2+B_{21} \times R_1 \\
-  \vdots\\
-   R_n\leftarrow R_n+B_{n1} \times R_1
-\end{align}
- Using a product of elementary matrices
- \begin{align}
-  \vec{E_4}=\myvec{1&0&\hdots&0\\B_{21}& 1&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\B_{n1}&0&\hdots&1}\\
-  \implies \vec{E_4}(\vec{E_3}(\vec{E_2}(\vec{E_1}\vec{R_1})))=\myvec{1&\frac{B_{12}}{B_{11}}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}
-\end{align}
-Performing $R_1 \leftarrow R_1\times B_{11}$ using elementary matrix
-\begin{align}
-  \vec{E_5}=\myvec{B_{11}&0&\hdots&0\\0& 1&\hdots&0\\\vdots&\vdots&\hdots&\vdots\\0&0&\hdots&1}\\
-  \implies \vec{E_5}(\vec{E_4}(\vec{E_3}(\vec{E_2}(\vec{E_1}\vec{R_1}))))=\myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}=\vec{B}\\
-  \implies \vec{B}=\vec{E}\vec{R_1}\\
- \text{ where  }\vec{E}=\vec{E_5}\vec{E_4}\vec{E_3}\vec{E_2}\vec{E_1}
-\end{align}
-is a product of elementary matrices.\\
-This indicates that $\vec{B}$ is obtained by linear combinations of $\vec{R_1}$ which is a linear combination of system $\vec{A}$.Hence $\vec{B}$ is obtained through linear combinations of $\vec{A}$.
+
+This indicates that $\vec{B}$ is obtained by linear combinations of $\vec{A}$ 
 
 \subsection{Case 2}
 Let us assume that \eqref{1},\eqref{2} have infinitely many solutions\\
