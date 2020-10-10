@@ -153,61 +153,58 @@ Prove that if two homogenous systems of linear equations in two unknowns have th
 \section{Solution}
 Let the two systems of homogenous equations be 
 \begin{align}
- \vec{A}\vec{x}=\vec{0}\\
- \vec{B}\vec{x}=\vec{0}\\
- \implies \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{1}\\
- \text{and  }\myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\label{2}
+  \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\\
+ \myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{y_1\\y_2}=\myvec{0\\0\\ \vdots \\0}\\
+\implies  \vec{A}\vec{x}=\vec{0}\label{1}\\
+ \vec{B}\vec{y}=\vec{0}\label{2}
+\end{align}
+We can write
+\begin{align}
+  \vec{C}\vec{A}\vec{x}=\vec{0}\label{3}\\
+ \vec{D}\vec{B}\vec{y}=\vec{0}\label{4}
+\end{align}
+where $\vec{C}$ and $\vec{D}$ are product of elementary matrices that reduce $\vec{A}$ and $\vec{B}$ into their reduced row echelon forms $\vec{R_1}$ and $\vec{R_2}$\\
+\eqref{3} and \eqref{4} imply
+\begin{align}
+    \vec{R_1}\vec{x}=0\\
+     \vec{R_2}\vec{y}=0
+\end{align}
+Given that they have same solution, we can write
+\begin{align}
+     \vec{R_1}\vec{x}=0\\
+     \vec{R_2}\vec{x}=0\\
+     \implies (\vec{R_1}-\vec{R_2})\vec{x}=0\label{5}
+\end{align}
+Note that for a solution to exist, $\vec{R_1}$ and $\vec{R_2}$ can be either of matrices
+\begin{align}
+    \myvec{1&0\\0&0\\\vdots&\vdots\\0&0} \text{or } \myvec{1&0\\0&1\\\vdots&\vdots\\0&0}
 \end{align}
 \subsection{Case 1}
 Let us assume that the solution is unique.
-Since they have the same solution, both $\vec{A},\vec{B}$ must have their rank as 2,that is both of them have two independent equations.\\
-Let the reduced row echelon form of $\vec{A}$ be $\vec{R_1}$ and $\vec{B}$ be $\vec{R_2}$\\
-Finding the reduced row echelon form of $\vec{A}$,
+The unique solution is
 \begin{align}
-    \vec{R_1}=\vec{C}\vec{A}
+    \vec{x}=\vec{0}
 \end{align}
-where $\vec{C}$ is a product of elementary matrices
+Since they have the same solution, both $\vec{R_1},\vec{R_2}$ must have their rank as 2.\\
+So,
 \begin{align}
-    \vec{C}=\vec{E_5}\vec{E_4}\vec{E_3}\vec{E_2}\vec{E_1}\\
-    \vec{E_1}=\myvec{\frac{1}{A_{11}}&0&0&\hdots&0\\0&1&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \vec{E_2}=\myvec{1&0&0&\hdots&0\\-A_{21}&1&0&\hdots&0\\-A_{31}&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\-A_{n1}&0&0&\hdots&1}\\
-   \vec{E_3}=\myvec{1&0&0&\hdots&0\\0&\frac{1}{A_{22}-\frac{A_{21}A_{12}}{A_{11}}}&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \vec{E_4}=\myvec{1&0&0&\hdots&0\\0&1&0&\hdots&0\\0&-A_{32}+\frac{A_{31}A_{12}}{A_{11}}&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&-A_{n2}+\frac{A_{n1}A_{12}}{A_{11}}&0&\hdots&1}\\
-   \vec{E_5}=\myvec{1&\frac{-A_{21}}{A_{11}}&0&\hdots&0\\0&1&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \implies \vec{R_1}=\vec{C}\vec{A}=\myvec{1&0\\0&1\\0&0\\\vdots&\vdots\\0&0}
+    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&1\\\vdots&\vdots\\0&0}
 \end{align}
-Finding the reduced row echelon form of $\vec{B}$,
-\begin{align}
-    \vec{R_2}=\vec{D}\vec{B}
-\end{align}
-where $\vec{D}$ is a product of elementary matrices
-\begin{align}
-    \vec{D}=\vec{E'_5}\vec{E'_4}\vec{E'_3}\vec{E'_2}\vec{E'_1}\\
-    \vec{E'_1}=\myvec{\frac{1}{B_{11}}&0&0&\hdots&0\\0&1&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \vec{E'_2}=\myvec{1&0&0&\hdots&0\\-B_{21}&1&0&\hdots&0\\-B_{31}&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\-B_{n1}&0&0&\hdots&1}\\
-   \vec{E'_3}=\myvec{1&0&0&\hdots&0\\0&\frac{1}{B_{22}-\frac{B_{21}B_{12}}{B_{11}}}&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-   \vec{E'_4}=\myvec{1&0&0&\hdots&0\\0&1&0&\hdots&0\\0&-B_{32}+\frac{B_{31}B_{12}}{B_{11}}&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&-B_{n2}+\frac{B_{n1}B_{12}}{B_{11}}&0&\hdots&1}\\
-   \vec{E'_5}=\myvec{1&\frac{-B_{21}}{B_{11}}&0&\hdots&0\\0&1&0&\hdots&0\\0&0&1&\hdots&0\\\vdots&\vdots&\vdots&\hdots&\vdots\\0&0&0&\hdots&1}\\
-    \implies \vec{R_2}=\vec{D}\vec{B}=\myvec{1&0\\0&1\\0&0\\\vdots&\vdots\\0&0}\\
-   \implies \vec{R_1}=\vec{R_2}
-\end{align}
-Hence the given systems are equivalent.
 
 \subsection{Case 2}
 Let us assume that \eqref{1},\eqref{2} have infinitely many solutions\\
 So,
 \begin{align}
-\text{either rank}(\vec{A}) = \text{rank}(\vec{B}) = 1 \\
-\text{or rank}(\vec{A})= \text{rank}(\vec{B}) = 0
+\text{rank}(\vec{A})= \text{rank}(\vec{B}) = 1
 \end{align}
-
-If, rank of $\vec{A}$ = rank of $\vec{B}$ = 1\\
-Row reduced echelon forms of $\vec{A},\vec{B}$ become $\vec{R_1},\vec{R_2}$ 
+equation \eqref{5} for solutions other than zero solution implies
 \begin{align}
-    \vec{R_1}=\myvec{1&0\\0&0\\\vdots&\vdots\\0&0}\\
-    \vec{R_2}=\myvec{1&0\\0&0\\\vdots&\vdots\\0&0}
+    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&0\\\vdots&\vdots\\0&0}
 \end{align}
-Hence the same approach as in case 1 yields equivalence of two systems.\\
-Rank zero indicates both $\vec{A}$ and $\vec{B}$ are null matrices and hence the systems \eqref{1} and \eqref{2} are equivalent.\\
+So, in both the cases, we have 
+\begin{align}
+     \vec{R_1}=\vec{R_2}
+\end{align}
+Hence the two systems of equations are equivalent.
 \end{document}
 
