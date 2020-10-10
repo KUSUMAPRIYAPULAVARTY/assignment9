@@ -153,31 +153,29 @@ Prove that if two homogenous systems of linear equations in two unknowns have th
 \section{Solution}
 Let the two systems of homogenous equations be 
 \begin{align}
-  \myvec{A_{11}&A_{12}\\A_{21}&A_{22}\\ \vdots & \vdots \\A_{n1}&A_{n2}}\myvec{x_1\\x_2}=\myvec{0\\0\\ \vdots \\0}\\
- \myvec{B_{11}&B_{12}\\B_{21}&B_{22}\\ \vdots & \vdots \\B_{n1}&B_{n2}}\myvec{y_1\\y_2}=\myvec{0\\0\\ \vdots \\0}\\
-\implies  \vec{A}\vec{x}=\vec{0}\label{1}\\
- \vec{B}\vec{y}=\vec{0}\label{2}
+   \vec{A}\vec{x}=\vec{0}\\
+ \vec{B}\vec{y}=\vec{0}
 \end{align}
 We can write
 \begin{align}
-  \vec{C}\vec{A}\vec{x}=\vec{0}\label{3}\\
- \vec{D}\vec{B}\vec{y}=\vec{0}\label{4}
+  \vec{C}\vec{A}\vec{x}=\vec{0}\label{1}\\
+ \vec{D}\vec{B}\vec{y}=\vec{0}\label{2}
 \end{align}
 where $\vec{C}$ and $\vec{D}$ are product of elementary matrices that reduce $\vec{A}$ and $\vec{B}$ into their reduced row echelon forms $\vec{R_1}$ and $\vec{R_2}$\\
-\eqref{3} and \eqref{4} imply
+\eqref{1} and \eqref{2} imply
 \begin{align}
     \vec{R_1}\vec{x}=0\\
      \vec{R_2}\vec{y}=0
 \end{align}
 Given that they have same solution, we can write
 \begin{align}
-     \vec{R_1}\vec{x}=0\\
-     \vec{R_2}\vec{x}=0\\
+     \vec{R_1}\vec{x}=0\label{3}\\
+     \vec{R_2}\vec{x}=0\label{4}\\
      \implies (\vec{R_1}-\vec{R_2})\vec{x}=0\label{5}
 \end{align}
 Note that for a solution to exist, $\vec{R_1}$ and $\vec{R_2}$ can be either of matrices
 \begin{align}
-    \myvec{1&0\\0&0\\\vdots&\vdots\\0&0} \text{or } \myvec{1&0\\0&1\\\vdots&\vdots\\0&0}
+    \myvec{1&0\\0&0} \text{or } \myvec{1&0\\0&1}
 \end{align}
 \subsection{Case 1}
 Let us assume that the solution is unique.
@@ -188,7 +186,7 @@ The unique solution is
 Since they have the same solution, both $\vec{R_1},\vec{R_2}$ must have their rank as 2.\\
 So,
 \begin{align}
-    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&1\\\vdots&\vdots\\0&0}
+    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&1}
 \end{align}
 
 \subsection{Case 2}
@@ -199,11 +197,24 @@ So,
 \end{align}
 equation \eqref{5} for solutions other than zero solution implies
 \begin{align}
-    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&0\\\vdots&\vdots\\0&0}
+    \vec{R_1}=\vec{R_2}=\myvec{1&0\\0&0}
 \end{align}
 So, in both the cases, we have 
 \begin{align}
-     \vec{R_1}=\vec{R_2}
+     \vec{R_1}=\vec{R_2}\\
+     \implies \vec{C}\vec{A}=\vec{D}\vec{B}
+\end{align}
+Since $\vec{C},\vec{D}$ are product of elementary matrices, they are invertible.
+\begin{align}
+    \implies \vec{A}= \vec{C^{-1}}\vec{D}\vec{B}\label{6}\\
+    \vec{B}=\vec{D^{-1}}\vec{C}\vec{A}\label{7}\\
+    \text{Let } \vec{C^{-1}}\vec{D}=\vec{E}
+\end{align}
+where $\vec{E}$ is also a product of elementary matrices\\
+\eqref{6} and \eqref{7} hence become
+\begin{align}
+\vec{A}=\vec{E}\vec{B}\\
+\vec{B}=\vec{E^{-1}}\vec{A}
 \end{align}
 Hence the two systems of equations are equivalent.
 \end{document}
